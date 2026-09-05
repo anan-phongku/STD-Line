@@ -1,0 +1,59 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { initApp } from '@/lib/appLogic';
+
+export default function Page() {
+  const started = useRef(false);
+
+  useEffect(() => {
+    if (started.current) return;
+    started.current = true;
+    initApp();
+  }, []);
+
+  return (
+    <>
+      <div className="topbar">
+        <div className="brand">
+          <span className="tag">STD LINE</span>
+          <h1>ระบบมาตรฐานตำแหน่งบรรจุ — สายพาน</h1>
+        </div>
+        <div className="spacer"></div>
+        <input className="search-box" id="searchBox" placeholder="ค้นหาเมนู..." />
+        <button className="btn btn-ghost" id="overviewBtn">ตารางสรุปทั้งหมด</button>
+        <button className="btn btn-amber" id="addMenuBtn">+ เพิ่มเมนู</button>
+      </div>
+
+      <div className="layout">
+        <div className="sidebar" id="sidebar">
+          <div className="cat-manage">
+            <div className="cat-manage-row">
+              <input type="text" id="newCatInput" placeholder="ชื่อหมวดหมู่ใหม่..." />
+              <button id="addCatBtn">+ เพิ่มหมวดหมู่</button>
+            </div>
+          </div>
+          <div className="cat-chips" id="catChips"></div>
+          <div className="count" id="sidebarCount"></div>
+          <div id="itemList"></div>
+        </div>
+        <div className="main" id="main"></div>
+      </div>
+
+      <div className="modal-bg" id="modalBg"><img id="modalImg" src="" alt="" /></div>
+      <div className="toast" id="toast"><span className="dot"></span><span id="toastText">บันทึกแล้ว</span></div>
+      <input type="file" id="hiddenFileInput" accept="image/*" style={{ display: 'none' }} />
+      <input type="file" id="hiddenGalleryFileInput" accept="image/*" multiple style={{ display: 'none' }} />
+
+      <div className="cam-modal" id="camModal">
+        <video id="camVideo" autoPlay playsInline muted></video>
+        <div className="cam-msg" id="camMsg"></div>
+        <div className="cam-controls">
+          <button className="btn btn-amber" id="camShotBtn">📸 ถ่ายรูป</button>
+          <button className="btn btn-ghost" id="camUploadInsteadBtn">แนบไฟล์แทน</button>
+          <button className="btn btn-danger" id="camCancelBtn">ยกเลิก</button>
+        </div>
+      </div>
+    </>
+  );
+}
