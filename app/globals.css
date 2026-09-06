@@ -88,10 +88,14 @@ body{min-height:100vh;font-size:15px;line-height:1.5;}
 h3.section-h{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--steel-600);border-bottom:1px solid var(--line-h);padding-bottom:6px;margin:26px 0 12px;}
 
 /* ---- Belt stage (lanes + draggable overlay for bars/arrows) ---- */
-.belt-stage{position:relative;max-width:720px;}
-.belt-grid{display:grid;grid-template-columns:1fr 8px 1fr;column-gap:0;align-items:stretch;}
+/* กล่องเลื่อนแนวนอน: บนมือถือรางสายพานกว้างเกินจอ ให้เลื่อนดูได้ทั้งชุด
+   (หัวไลน์ + ราง + overlay อยู่ใน viewport เดียวกัน กว้างเท่ากัน จึงเรียงตรงกันเสมอ) */
+.belt-scroll{overflow-x:auto;overflow-y:visible;max-width:100%;padding-bottom:6px;}
+.belt-viewport{width:max-content;min-width:100%;}
+.belt-stage{position:relative;width:100%;}
+.belt-grid{position:relative;display:grid;grid-template-columns:1fr 8px 1fr;column-gap:0;align-items:stretch;}
 
-.head-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;max-width:720px;justify-content:center;}
+.head-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;width:100%;justify-content:center;}
 .head-card{background:#fff;border:1px solid var(--line-h);border-radius:8px;padding:8px;width:118px;flex:none;display:flex;flex-direction:column;gap:6px;align-items:center;}
 .head-card.blank .head-card-fields,.head-card.blank .station-cell{opacity:0;transition:opacity .15s;}
 .head-card.blank:hover .head-card-fields,.head-card.blank:hover .station-cell{opacity:.45;}
@@ -102,7 +106,7 @@ h3.section-h{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:
 .head-card-top button.rm:hover{background:#f1e2e2;color:var(--danger);}
 .head-card-fields{display:flex;flex-direction:column;gap:4px;width:100%;align-items:center;}
 .head-card-fields .station-label{width:100%;}
-.head-add-btn{display:block;margin:0 auto 14px;}
+.head-add-btn{display:block;width:fit-content;margin:0 auto 14px;}
 .lane{display:flex;flex-direction:column;background:#fff;padding:10px;border:1px solid var(--line-h);}
 .lane.lane-left{border-radius:8px 0 0 8px;border-right:none;}
 .lane.lane-right{border-radius:0 8px 8px 0;border-left:none;}
@@ -147,17 +151,22 @@ h3.section-h{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:
 .station-cell .capture-btn{position:absolute;bottom:2px;left:2px;background:rgba(20,24,29,.65);color:#fff;border:none;border-radius:4px;width:20px;height:20px;font-size:11px;cursor:pointer;line-height:1;}
 
 .lane-add-btn{margin-top:6px;width:100%;}
+/* ปุ่มเพิ่มสถานี/เพิ่มกิจกรรมหัวไลน์: จางกลืนพื้นหลังจนกว่าจะชี้เมาส์เข้าไปในโซนนั้น */
+.lane-add-btn,.head-add-btn{opacity:.25;transition:opacity .15s;}
+.lane:hover .lane-add-btn,.lane-add-btn:hover,.lane-add-btn:focus,
+.belt-viewport:hover .head-add-btn,.head-add-btn:hover,.head-add-btn:focus{opacity:1;}
 .belt-hint{font-size:12px;color:var(--steel-500);margin-top:10px;max-width:640px;}
 
 .belt-overlay{position:absolute;inset:0;pointer-events:none;}
-.ov-bar{position:absolute;height:8px;background:#15181c;border-radius:3px;cursor:grab;pointer-events:auto;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:flex-end;}
+.ov-bar{position:absolute;height:8px;background:#15181c;border-radius:3px;cursor:grab;pointer-events:auto;touch-action:none;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:flex-end;}
 .ov-bar:active{cursor:grabbing;}
 .ov-bar .ov-x{background:rgba(255,255,255,.9);color:#15181c;border:none;border-radius:50%;width:16px;height:16px;font-size:10px;cursor:pointer;margin-right:-6px;line-height:1;pointer-events:auto;}
 .ov-arrow{position:absolute;left:0;right:0;display:flex;justify-content:center;align-items:center;pointer-events:none;}
 .ov-arrow .arrow-body{
-  pointer-events:auto;cursor:grab;background:#d1352b;color:#fff;font-weight:700;font-size:18px;
+  pointer-events:auto;cursor:grab;touch-action:none;background:#d1352b;color:#fff;font-weight:700;font-size:18px;
   padding:3px 14px;border-radius:14px;box-shadow:0 2px 6px rgba(0,0,0,.35);display:flex;align-items:center;gap:8px;
 }
+.ov-arrow .arrow-glyph{pointer-events:none;}
 .ov-arrow .arrow-body:active{cursor:grabbing;}
 .ov-arrow .ov-x{background:rgba(255,255,255,.85);color:#d1352b;border:none;border-radius:50%;width:16px;height:16px;font-size:10px;cursor:pointer;line-height:1;}
 
@@ -188,6 +197,9 @@ h3.section-h{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:
 .steps-table input{border:1px solid transparent;background:transparent;font-size:13.5px;padding:6px 7px;border-radius:5px;width:100%;}
 .steps-table input:hover{border-color:var(--line-h);}
 .steps-table input:focus{outline:none;border-color:var(--amber);background:#fffdf7;}
+/* แถวที่ยุบรวมจากหลายสถานี: ค่าเป็นผลรวม แก้ที่ตารางไม่ได้ (ไปแก้ที่สถานีแทน) */
+.steps-table .step-agg{display:inline-block;font-size:13.5px;font-weight:700;color:var(--steel-800);padding:6px 7px;}
+.steps-table .step-agg em{font-style:normal;font-weight:600;font-size:10px;color:var(--steel-500);background:var(--steel-100);border:1px solid var(--line-h);border-radius:4px;padding:1px 5px;margin-left:5px;white-space:nowrap;}
 .steps-table td.drag-col{width:26px;text-align:center;color:var(--steel-400,#8a97a4);}
 .steps-table td.order-col{width:44px;text-align:center;color:var(--steel-500);font-weight:600;}
 .steps-table td.people-col{width:80px;}
