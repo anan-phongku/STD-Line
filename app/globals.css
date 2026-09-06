@@ -91,7 +91,7 @@ h3.section-h{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:
 /* กล่องเลื่อนแนวนอน: บนมือถือรางสายพานกว้างเกินจอ ให้เลื่อนดูได้ทั้งชุด
    (หัวไลน์ + ราง + overlay อยู่ใน viewport เดียวกัน กว้างเท่ากัน จึงเรียงตรงกันเสมอ) */
 .belt-scroll{overflow-x:auto;overflow-y:visible;max-width:100%;padding-bottom:6px;}
-.belt-viewport{width:max-content;min-width:100%;}
+.belt-viewport{width:max-content;}
 .belt-stage{position:relative;width:100%;}
 .belt-grid{position:relative;display:grid;grid-template-columns:1fr 8px 1fr;column-gap:0;align-items:stretch;}
 
@@ -119,6 +119,10 @@ h3.section-h{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:
 .station-row.blank .station-label,.station-row.blank .station-icon,.station-row.blank .station-cell,.station-row.blank .station-btns,.station-row.blank .people-field,.station-row.blank .label-rate-stack{opacity:0;transition:opacity .15s;}
 .station-row.blank:hover .station-label,.station-row.blank:hover .station-icon,.station-row.blank:hover .station-cell,.station-row.blank:hover .station-btns,.station-row.blank:hover .people-field,.station-row.blank:hover .label-rate-stack{opacity:.45;}
 .lane-right .station-row{flex-direction:row;}
+/* ให้ทั้งสองเลนดันเนื้อหาชิดเส้นกลาง รูปสถานีซ้าย-ขวาจะได้สมมาตรกัน
+   แม้เลนใดเลนหนึ่งจะมีเนื้อหากว้างกว่าจนราง 1fr ทั้งสองฝั่งเหลือที่ว่างไม่เท่ากัน */
+.lane-left .station-row{justify-content:flex-end;}
+.lane-right .station-row{justify-content:flex-start;}
 .station-btns{display:flex;flex-direction:column;gap:2px;opacity:0;transition:opacity .15s;}
 .station-row:hover .station-btns{opacity:1;}
 .blank-select{font-size:10px;border:1px solid var(--line-h);border-radius:4px;padding:1px 2px;background:#fff;color:var(--steel-600);max-width:56px;}
