@@ -141,6 +141,14 @@ h3.section-h{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:
 .station-row:hover .station-btns{opacity:1;}
 .station-copy-btn{font-size:10px;border:1px solid var(--line-h);border-radius:4px;padding:2px 4px;background:#fff;color:var(--steel-600);cursor:pointer;white-space:nowrap;}
 .station-copy-btn:hover{background:var(--steel-100);border-color:var(--steel-500);color:var(--steel-900);}
+/* สถานีที่ถูกเลือกไว้ในคลิปบอร์ด — ต้องเห็นชัดตอนเลือกหลายตัวว่าเลือกอันไหนไปแล้วบ้าง */
+.station-copy-btn.picked{background:var(--amber);border-color:var(--amber-dark);color:#2a1c05;font-weight:700;}
+.station-row:has(.station-copy-btn.picked),.head-card:has(.station-copy-btn.picked){outline:2px solid var(--amber);outline-offset:2px;border-radius:6px;}
+.station-row:has(.station-copy-btn.picked) .station-btns,.head-card:has(.station-copy-btn.picked) .head-card-top{opacity:1;}
+/* แถบบอกว่ามีอะไรค้างในคลิปบอร์ดอยู่ */
+.clip-status{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--steel-700);background:#fffdf5;border:1px solid var(--amber);border-radius:6px;padding:5px 10px;}
+.clip-status button{border:none;background:var(--steel-200);color:var(--steel-800);border-radius:4px;padding:2px 8px;font-size:11px;cursor:pointer;font-family:inherit;}
+.clip-status button:hover{background:var(--steel-500);color:#fff;}
 .blank-select{font-size:10px;border:1px solid var(--line-h);border-radius:4px;padding:1px 2px;background:#fff;color:var(--steel-600);max-width:56px;}
 .drag-handle{flex:none;width:20px;text-align:center;font-size:15px;color:var(--steel-500);cursor:grab;opacity:0;transition:opacity .15s;}
 .station-row:hover .drag-handle,.head-card:hover .drag-handle{opacity:1;}
