@@ -91,7 +91,14 @@ h3.section-h{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:
 /* กล่องเลื่อนแนวนอน: บนมือถือรางสายพานกว้างเกินจอ ให้เลื่อนดูได้ทั้งชุด
    (หัวไลน์ + ราง + overlay อยู่ใน viewport เดียวกัน กว้างเท่ากัน จึงเรียงตรงกันเสมอ) */
 .belt-scroll{overflow-x:auto;overflow-y:visible;max-width:100%;padding-bottom:6px;}
-.belt-viewport{width:max-content;}
+/* .belt-zoomwrap จองพื้นที่เท่าขนาดหลังสเกล (transform ไม่กินที่ layout) — ขนาดตั้งจาก JS */
+.belt-zoomwrap{position:relative;}
+.belt-viewport{width:max-content;transform-origin:top left;}
+/* แถบย่อ/ขยายไดอะแกรม */
+.belt-zoombar{display:flex;align-items:center;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
+.belt-zoombar .zoom-label{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--steel-500);margin-right:2px;}
+.belt-zoombar .btn-small{padding:4px 9px;line-height:1.2;}
+.belt-zoombar .zoom-level{min-width:58px;font-variant-numeric:tabular-nums;font-weight:700;}
 .belt-stage{position:relative;width:100%;}
 .belt-grid{position:relative;display:grid;grid-template-columns:1fr 8px 1fr;column-gap:0;align-items:stretch;}
 
