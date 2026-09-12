@@ -139,6 +139,8 @@ h3.section-h{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:
 .lane-right .station-row{justify-content:flex-start;}
 .station-btns{display:flex;flex-direction:column;gap:2px;opacity:0;transition:opacity .15s;}
 .station-row:hover .station-btns{opacity:1;}
+.station-copy-btn{font-size:10px;border:1px solid var(--line-h);border-radius:4px;padding:2px 4px;background:#fff;color:var(--steel-600);cursor:pointer;white-space:nowrap;}
+.station-copy-btn:hover{background:var(--steel-100);border-color:var(--steel-500);color:var(--steel-900);}
 .blank-select{font-size:10px;border:1px solid var(--line-h);border-radius:4px;padding:1px 2px;background:#fff;color:var(--steel-600);max-width:56px;}
 .drag-handle{flex:none;width:20px;text-align:center;font-size:15px;color:var(--steel-500);cursor:grab;opacity:0;transition:opacity .15s;}
 .station-row:hover .drag-handle,.head-card:hover .drag-handle{opacity:1;}
@@ -172,8 +174,13 @@ body.station-dragging .lane .lane-title::after{content:" — ปล่อยใ�
 .station-cell .capture-btn{position:absolute;bottom:2px;left:2px;background:rgba(20,24,29,.65);color:#fff;border:none;border-radius:4px;width:20px;height:20px;font-size:11px;cursor:pointer;line-height:1;}
 
 .lane-add-btn{margin-top:6px;width:100%;}
+.lane-paste-btn{margin-top:6px;width:100%;border-color:var(--amber);color:var(--amber-dark);background:#fffdf5;}
+.lane-paste-btn:hover{background:#fdf4e2;}
+.head-add-row{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;}
+.head-add-row .lane-paste-btn{width:auto;margin-top:0;}
 /* ปุ่มเพิ่มสถานี/เพิ่มกิจกรรมหัวไลน์: จางกลืนพื้นหลังจนกว่าจะชี้เมาส์เข้าไปในโซนนั้น */
 .lane-add-btn,.head-add-btn{opacity:.25;transition:opacity .15s;}
+.lane-paste-btn{opacity:1;}
 .lane:hover .lane-add-btn,.lane-add-btn:hover,.lane-add-btn:focus,
 .belt-viewport:hover .head-add-btn,.head-add-btn:hover,.head-add-btn:focus{opacity:1;}
 .belt-hint{font-size:12px;color:var(--steel-500);margin-top:10px;max-width:640px;}
@@ -207,6 +214,7 @@ body.station-dragging .lane .lane-title::after{content:" — ปล่อยใ�
 .ov-machine .people-input,.ov-machine .rate-input{background:#fffdf0;border-color:#15181c;}
 .ov-machine .people-unit,.ov-machine .rate-unit{color:#2f2a14;font-weight:600;}
 .ov-machine .rate-row{flex:1;min-width:108px;}
+.ov-machine .station-cell{width:100%;height:auto;flex:1 1 auto;min-height:0;border-color:#15181c;}
 .ov-arrow .arrow-body:active{cursor:grabbing;}
 .ov-arrow .ov-x{background:rgba(255,255,255,.85);color:#d1352b;border:none;border-radius:50%;width:16px;height:16px;font-size:10px;cursor:pointer;line-height:1;}
 
