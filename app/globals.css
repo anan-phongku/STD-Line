@@ -149,8 +149,9 @@ h3.section-h{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:
 .rate-input{width:100%;border:1px solid var(--line-h);border-radius:4px;padding:4px 5px;font-size:10.5px;background:var(--steel-100);}
 .rate-input:focus{outline:none;border-color:var(--amber);background:#fffdf7;}
 .rate-unit{font-size:9.5px;color:var(--steel-500);flex:none;}
-.station-trash{margin-top:10px;border:2px dashed var(--danger);color:var(--danger);border-radius:8px;padding:8px;text-align:center;font-size:12px;max-width:720px;}
-.station-trash.drag-over{background:#fbe8e4;}
+/* ระหว่างลากสถานี: ตีกรอบรางให้เห็นชัดว่า "ในกรอบ = ย้าย, นอกกรอบ = ลบ" */
+body.station-dragging .lane{outline:2px dashed var(--belt-blue);outline-offset:-2px;background:#f7fafd;}
+body.station-dragging .lane .lane-title::after{content:" — ปล่อยในกรอบเพื่อย้าย / นอกกรอบเพื่อลบ";color:var(--danger);font-weight:600;}
 .station-cell{
   flex:none;width:96px;height:84px;background:var(--belt-blue);border-radius:4px;
   display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;
