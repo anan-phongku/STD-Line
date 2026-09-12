@@ -204,6 +204,15 @@ body.station-dragging .lane .lane-title::after{content:" — ปล่อยใ�
   padding:3px 14px;border-radius:14px;box-shadow:0 2px 6px rgba(0,0,0,.35);display:flex;align-items:center;gap:8px;
 }
 .ov-arrow .arrow-glyph{pointer-events:none;}
+/* ไม้กั้นสูงแค่ 8px นิ้วจิ้มโดนยากมาก — บนอุปกรณ์สัมผัสขยายพื้นที่จับให้กว้างขึ้น
+   (::before มองไม่เห็น ไม้กั้นยังดูบางเท่าเดิม) และทำลูกศรให้ใหญ่ขึ้นด้วย */
+@media (pointer: coarse){
+  .ov-bar::before{content:"";position:absolute;left:0;right:0;top:-16px;bottom:-16px;}
+  .ov-bar .ov-x{position:relative;z-index:1;width:22px;height:22px;font-size:12px;}
+  .ov-arrow .arrow-body{padding:9px 20px;font-size:20px;}
+  .ov-arrow .ov-x{width:22px;height:22px;font-size:12px;}
+  .ov-machine .machine-head{padding:4px 0;}
+}
 
 /* เครื่องจักร: ลอยบน overlay เหมือนไม้กั้น/ลูกศร คร่อมกลางราง สูงเท่า 3 ช่องสถานี */
 .ov-machine{
