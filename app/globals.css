@@ -240,7 +240,12 @@ body.station-dragging .lane .lane-title::after{content:" — ปล่อยใ�
 .foot-table input:focus{outline:none;text-decoration:underline;}
 
 .gallery{display:flex;flex-wrap:wrap;gap:10px;}
-.gallery-toolbar{margin-bottom:10px;}
+.gallery.collapsed{display:none;}
+/* แกลเลอรีรูปต้นฉบับอยู่เหนือราง หุบได้เพื่อไม่ให้เกะกะตอนจัดสถานี */
+.gallery-block{margin-bottom:14px;}
+.gallery-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
+.gallery-toggle{border:1px solid var(--line-h);background:#fff;color:var(--steel-700);border-radius:6px;padding:5px 10px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit;}
+.gallery-toggle:hover{background:var(--steel-100);border-color:var(--steel-500);}
 .gallery img{width:96px;height:96px;object-fit:cover;border-radius:6px;border:1px solid var(--line-h);cursor:grab;background:#fff;}
 .gallery img:active{cursor:grabbing;}
 .station-cell.drop-hover{outline:3px solid var(--amber);outline-offset:-3px;}
