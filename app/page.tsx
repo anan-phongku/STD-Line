@@ -69,15 +69,6 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="cam-modal" id="camModal">
-        <video id="camVideo" autoPlay playsInline muted></video>
-        <div className="cam-msg" id="camMsg"></div>
-        <div className="cam-controls">
-          <button className="btn btn-amber" id="camShotBtn">📸 ถ่ายรูป</button>
-          <button className="btn btn-ghost" id="camUploadInsteadBtn">แนบไฟล์แทน</button>
-          <button className="btn btn-danger" id="camCancelBtn">ยกเลิก</button>
-        </div>
-      </div>
     </>
   );
 }

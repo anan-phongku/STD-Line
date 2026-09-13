@@ -18,7 +18,7 @@
   --row-green:#9dc97f;
   --row-blue:#7fabdd;
   --station-h:84px;
-  --station-gap:12px;
+  --station-gap:18px;
   font-family:"IBM Plex Sans Thai","Noto Sans Thai",-apple-system,"Segoe UI",sans-serif;
 }
 *{box-sizing:border-box;}
@@ -177,7 +177,8 @@ textarea.station-label::-webkit-scrollbar{width:0;height:0;}
 .rate-unit{font-size:9.5px;color:var(--steel-500);flex:none;}
 /* ระหว่างลากสถานี: ตีกรอบรางให้เห็นชัดว่า "ในกรอบ = ย้าย, นอกกรอบ = ลบ" */
 body.station-dragging .lane{outline:2px dashed var(--belt-blue);outline-offset:-2px;background:#f7fafd;}
-body.station-dragging .lane .lane-title::after{content:" — ปล่อยในกรอบเพื่อย้าย / นอกกรอบเพื่อลบ";color:var(--danger);font-weight:600;}
+body.station-dragging .lane .lane-title::after{content:" — ปล่อยในกรอบ = ย้าย · ข้าง/ใต้ราง = ลบ";color:var(--danger);font-weight:600;}
+body.station-dragging .head-add-row::after{content:"⬆ ปล่อยเหนือรางสายพาน = ย้ายขึ้นหัวไลน์";font-size:12px;font-weight:600;color:var(--belt-blue);}
 .station-cell{
   flex:none;width:96px;height:var(--station-h);background:var(--belt-blue);border-radius:4px;
   display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;
@@ -188,7 +189,6 @@ body.station-dragging .lane .lane-title::after{content:" — ปล่อยใ�
 .station-cell .clear-img{position:absolute;top:2px;right:2px;background:rgba(20,24,29,.7);color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:11px;cursor:pointer;line-height:1;}
 .station-cell .crop-img-btn{position:absolute;bottom:2px;right:2px;background:rgba(20,24,29,.7);color:#fff;border:none;border-radius:4px;width:20px;height:20px;font-size:11px;cursor:pointer;line-height:1;}
 .station-cell .crop-img-btn:hover,.station-cell .clear-img:hover{background:var(--amber-dark);}
-.station-cell .capture-btn{position:absolute;bottom:2px;left:2px;background:rgba(20,24,29,.65);color:#fff;border:none;border-radius:4px;width:20px;height:20px;font-size:11px;cursor:pointer;line-height:1;}
 
 .lane-add-btn{margin-top:6px;width:100%;}
 .lane-paste-btn{margin-top:6px;width:100%;border-color:var(--amber);color:var(--amber-dark);background:#fffdf5;}
@@ -313,11 +313,7 @@ body.station-dragging .lane .lane-title::after{content:" — ปล่อยใ�
 .view-zoom{display:flex;align-items:center;gap:8px;font-size:13px;}
 .view-zoom input{width:140px;accent-color:var(--amber);}
 .view-zoom b{min-width:42px;text-align:right;font-variant-numeric:tabular-nums;}
-.cam-modal{position:fixed;inset:0;background:rgba(10,13,17,.92);display:none;align-items:center;justify-content:center;z-index:70;padding:20px;flex-direction:column;gap:14px;}
-.cam-modal.open{display:flex;}
-.cam-modal video{max-width:92vw;max-height:66vh;border-radius:10px;background:#000;transform:scaleX(-1);}
-.cam-modal .cam-msg{color:#fff;font-size:14px;text-align:center;max-width:420px;}
-.cam-modal .cam-controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.cam-controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
 .toast{position:fixed;bottom:22px;right:22px;background:var(--steel-900);color:#fff;padding:11px 18px;border-radius:8px;font-size:13.5px;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;z-index:60;display:flex;align-items:center;gap:8px;}
 .toast.show{opacity:1;transform:translateY(0);}
 .toast .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);}
