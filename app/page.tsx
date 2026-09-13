@@ -45,21 +45,27 @@ export default function Page() {
       <input type="file" id="hiddenFileInput" accept="image/*" style={{ display: 'none' }} />
       <input type="file" id="hiddenGalleryFileInput" accept="image/*" multiple style={{ display: 'none' }} />
 
-      <div className="crop-modal" id="cropModal">
-        <div className="crop-hint">ลากในกรอบเพื่อเลื่อน · ลากมุมเพื่อปรับขนาด</div>
-        <div className="crop-stage" id="cropStage">
-          <img id="cropImg" alt="" />
-          <div className="crop-box" id="cropBox">
-            <span className="crop-h" data-h="nw"></span>
-            <span className="crop-h" data-h="ne"></span>
-            <span className="crop-h" data-h="sw"></span>
-            <span className="crop-h" data-h="se"></span>
+      <div className="crop-modal" id="viewModal">
+        <div className="crop-hint">ลากกรอบไปยังส่วนของรูปที่ต้องการให้แสดงในช่อง · เลื่อนแถบเพื่อซูม</div>
+        <div className="view-body">
+          <div className="crop-stage" id="viewStage">
+            <img id="viewImg" alt="" />
+            <div className="crop-box" id="viewBox"></div>
+          </div>
+          <div className="view-side">
+            <div className="view-preview-label">ตัวอย่างในช่อง</div>
+            <div className="view-preview" id="viewPreview"><img id="viewPreviewImg" alt="" /></div>
+            <label className="view-zoom">
+              <span>ซูม</span>
+              <input type="range" id="viewZoom" min="100" max="400" step="5" defaultValue="100" />
+              <b id="viewZoomLabel">100%</b>
+            </label>
           </div>
         </div>
         <div className="cam-controls">
-          <button className="btn btn-ghost" id="cropAllBtn">เลือกทั้งรูป</button>
-          <button className="btn btn-danger" id="cropCancelBtn">ยกเลิก</button>
-          <button className="btn btn-amber" id="cropApplyBtn">✂ ครอบรูป</button>
+          <button className="btn btn-ghost" id="viewResetBtn">แสดงทั้งรูป (กลางภาพ)</button>
+          <button className="btn btn-danger" id="viewCancelBtn">ยกเลิก</button>
+          <button className="btn btn-amber" id="viewApplyBtn">✓ ใช้ตำแหน่งนี้</button>
         </div>
       </div>
 
