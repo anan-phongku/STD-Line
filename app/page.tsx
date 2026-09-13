@@ -45,6 +45,24 @@ export default function Page() {
       <input type="file" id="hiddenFileInput" accept="image/*" style={{ display: 'none' }} />
       <input type="file" id="hiddenGalleryFileInput" accept="image/*" multiple style={{ display: 'none' }} />
 
+      <div className="crop-modal" id="cropModal">
+        <div className="crop-hint">ลากในกรอบเพื่อเลื่อน · ลากมุมเพื่อปรับขนาด</div>
+        <div className="crop-stage" id="cropStage">
+          <img id="cropImg" alt="" />
+          <div className="crop-box" id="cropBox">
+            <span className="crop-h" data-h="nw"></span>
+            <span className="crop-h" data-h="ne"></span>
+            <span className="crop-h" data-h="sw"></span>
+            <span className="crop-h" data-h="se"></span>
+          </div>
+        </div>
+        <div className="cam-controls">
+          <button className="btn btn-ghost" id="cropAllBtn">เลือกทั้งรูป</button>
+          <button className="btn btn-danger" id="cropCancelBtn">ยกเลิก</button>
+          <button className="btn btn-amber" id="cropApplyBtn">✂ ครอบรูป</button>
+        </div>
+      </div>
+
       <div className="cam-modal" id="camModal">
         <video id="camVideo" autoPlay playsInline muted></video>
         <div className="cam-msg" id="camMsg"></div>
