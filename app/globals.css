@@ -42,6 +42,12 @@ body{min-height:100vh;font-size:15px;line-height:1.5;}
 .btn-outline:hover{background:var(--steel-100);border-color:var(--steel-500);}
 .btn-danger{background:transparent;color:#e79076;border:1px solid #6b3226;}
 .btn-save{background:var(--ok);color:#fff;}
+/* ปุ่มตรวจสอบ: ยังไม่ตรวจ = ขอบเทาเรียบ ๆ, ตรวจแล้ว = เขียวเต็ม เห็นชัดจากไกล */
+.btn-verify{background:#fff;color:var(--steel-700);border:1.5px dashed var(--steel-500);}
+.btn-verify:hover{border-color:var(--ok);color:var(--ok);}
+.btn-verify.on{background:#e3f1e6;color:#2f6b3c;border:1.5px solid var(--ok);}
+.verified-badge{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--ok);color:#fff;font-size:11px;font-weight:700;margin-right:6px;vertical-align:1px;flex:none;}
+.verify-cell{text-align:center;}
 .btn-small{padding:5px 10px;font-size:12.5px;border-radius:5px;}
 .btn:disabled{opacity:.4;cursor:not-allowed;}
 
