@@ -225,14 +225,14 @@ body.station-dragging .head-add-row::after{content:"⬆ ปล่อยเหน
 /* เครื่องจักร: ลอยบน overlay เหมือนไม้กั้น/ลูกศร ขนาดตายตัว สูง 2 ช่องสถานี
    วางได้ 3 คอลัมน์แนวขวาง (container query ซ่อนหน่วยเมื่อกล่องแคบ) */
 .ov-machine{
-  position:absolute;left:34.5%;width:31%;
+  position:absolute;left:38%;width:24%;
   height:calc(var(--station-h) * 2 + var(--station-gap));
   background:#e4e8ec;border:3px solid #15181c;border-radius:7px;
   padding:5px 6px;display:flex;flex-direction:column;gap:4px;
   pointer-events:auto;box-shadow:0 3px 10px rgba(0,0,0,.35);
   container-type:inline-size;
 }
-@container (max-width: 190px){
+@container (max-width: 160px){
   .ov-machine .people-unit,.ov-machine .rate-unit{display:none;}
 }
 .ov-machine .machine-head{display:flex;align-items:center;justify-content:space-between;gap:6px;cursor:grab;touch-action:none;flex:none;}
