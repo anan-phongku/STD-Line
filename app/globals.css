@@ -226,7 +226,7 @@ body.station-dragging .head-add-row::after{content:"⬆ ปล่อยเหน
 .ov-machine{
   position:absolute;left:50%;transform:translateX(-50%);width:min(330px,80%);
   height:calc(var(--station-h) * 3 + var(--station-gap) * 2);
-  background:var(--row-yellow);border:3px solid #15181c;border-radius:7px;
+  background:transparent;border:3px solid #15181c;border-radius:7px;
   padding:6px 9px;display:flex;flex-direction:column;gap:7px;
   pointer-events:auto;box-shadow:0 3px 10px rgba(0,0,0,.35);
 }
