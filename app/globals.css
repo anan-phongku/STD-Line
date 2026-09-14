@@ -222,19 +222,15 @@ body.station-dragging .head-add-row::after{content:"⬆ ปล่อยเหน
   .ov-machine .machine-head{padding:4px 0;}
 }
 
-/* เครื่องจักร: ลอยบน overlay เหมือนไม้กั้น/ลูกศร ตำแหน่ง/ขนาดมาจาก style ของแต่ละกล่อง
-   ขนาดตั้งต้นเล็กพอให้วางเรียงแนวขวางได้ 3 เครื่อง (container query ซ่อนหน่วยเมื่อกล่องแคบ) */
+/* เครื่องจักร: ลอยบน overlay เหมือนไม้กั้น/ลูกศร ขนาดตายตัว สูง 2 ช่องสถานี
+   วางได้ 3 คอลัมน์แนวขวาง (container query ซ่อนหน่วยเมื่อกล่องแคบ) */
 .ov-machine{
-  position:absolute;left:34.5%;width:31%;min-width:100px;min-height:96px;
+  position:absolute;left:34.5%;width:31%;
   height:calc(var(--station-h) * 2 + var(--station-gap));
   background:#e4e8ec;border:3px solid #15181c;border-radius:7px;
   padding:5px 6px;display:flex;flex-direction:column;gap:4px;
   pointer-events:auto;box-shadow:0 3px 10px rgba(0,0,0,.35);
   container-type:inline-size;
-}
-.ov-machine .machine-resize{position:absolute;right:-9px;bottom:-9px;width:16px;height:16px;background:#15181c;border:2px solid #fff;border-radius:4px;cursor:nwse-resize;touch-action:none;z-index:2;}
-@media (pointer: coarse){
-  .ov-machine .machine-resize{right:-14px;bottom:-14px;width:24px;height:24px;}
 }
 @container (max-width: 190px){
   .ov-machine .people-unit,.ov-machine .rate-unit{display:none;}
