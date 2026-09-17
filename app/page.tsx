@@ -14,6 +14,12 @@ export default function Page() {
 
   return (
     <>
+      <div className="boot-overlay" id="bootOverlay">
+        <div className="boot-spinner"></div>
+        <div className="boot-msg" id="bootMsg">กำลังโหลดข้อมูล...</div>
+        <div className="boot-sub">ข้อมูลมีรูปจำนวนมาก ครั้งแรกอาจใช้เวลาสักครู่</div>
+      </div>
+
       <div className="topbar">
         <div className="brand">
           <span className="tag">STD LINE</span>
